@@ -1,7 +1,5 @@
-
-  //NOTE: make sure that "shooter" x and y are passed in for x2 and y2
+    //NOTE: make sure that "shooter" x and y are passed in for x2 and y2
     //compute angle between x1,y1 to x2, y2
-    //make sure to "#define PI 3.1415926535" up top near include statements
     public double computeAngleBetweenPoints(float x1, float y1, float x2, float y2)
     {   
         double angle=0;
