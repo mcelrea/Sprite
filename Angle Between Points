@@ -1,0 +1,31 @@
+
+  //NOTE: make sure that "shooter" x and y are passed in for x2 and y2
+    //compute angle between x1,y1 to x2, y2
+    //make sure to "#define PI 3.1415926535" up top near include statements
+    public double computeAngleBetweenPoints(float x1, float y1, float x2, float y2)
+    {   
+        double angle=0;
+        double deltax = Math.abs (x1 - x2);
+        double deltay = Math.abs (y1 - y2);
+        if (x1 >= x2 && y1 >= y2)
+        {
+            angle = Math.atan(deltay / deltax) * 180 / Math.PI;
+        }
+        else if (x1 < x2 && y1 > y2)
+        {
+            angle = Math.atan(deltay / deltax) * 180 / Math.PI;
+            angle = 180 - angle;
+        }
+        else if (x1 < x2 && y1 < y2)
+        {
+            angle = Math.atan(deltay / deltax) * 180 / Math.PI;
+            angle = 180 + angle;
+        }
+        else if (x1 > x2 && y1 < y2)
+        {
+            angle = Math.atan(deltay / deltax) * 180 / Math.PI;
+            angle = 360 - angle;
+        }
+           
+        return angle;
+    }//end computeAngleBetweenPoints
