@@ -1,0 +1,50 @@
+public void simpleChase(Sprite other, int delta)
+  {
+		float midx, midy, othermidx, othermidy;
+
+		//if the chaser is not animated
+		if(!(this instanceof AnimatedSprite))
+		{
+			midx = x + image.getWidth()/2;
+			midy = y + image.getHeight()/2;
+		}//end if
+		//else the chaser is an animated sprite, more work to do
+		else
+		{
+			midx = x + ((AnimatedSprite)this).anim.getImage(0).getWidth()/2;
+			midy = y + ((AnimatedSprite)this).anim.getImage(0).getHeight()/2;
+		}//end else
+
+		//if the chaser is not animated
+		if(!(other instanceof AnimatedSprite))
+		{
+			othermidx = x + image.getWidth()/2;
+			othermidy = y + image.getHeight()/2;
+		}//end if
+		//else the chaser is an animated sprite, more work to do
+		else
+		{
+			othermidx = x + ((AnimatedSprite)other).anim.getImage(0).getWidth()/2;
+			othermidy = y + ((AnimatedSprite)other).anim.getImage(0).getHeight()/2;
+		}//end else
+
+		//find the difference between x values and y values
+		float deltax = Math.abs(midx - othermidx);
+		float deltay = Math.abs(midy - othermidy);
+
+		//if deltax is larger
+		if(deltax > deltay)
+		{
+			//if I need to move to the left
+			if(x > other.x)
+			{
+				x -= speed * delta;
+			}//end if
+			//else, I need to move the right
+			else
+			{
+				x += speed * delta;
+			}//end else
+		}//end if
+
+	}//end simpleChase
